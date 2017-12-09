@@ -1,2 +1,2 @@
 # adventOfCode2017
-My solutions to adventofcode.com
+Solving adventofcode.com exercises as a way of improving my python programming. 
