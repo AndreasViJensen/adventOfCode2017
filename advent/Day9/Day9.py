@@ -39,18 +39,12 @@ def scoreStream(str):
 
 print(scoreStream(input))
 
-# Solution using Regular expressions... fails...
+# Solution using Regular expressions (Credits to Martin Zach Gronhoj)
 input = open("input.txt", "r", encoding="utf-8").read()
 
-gb1 = re.compile("{<(!!|!.|[^!])*?>,")  # garbage that are first in a group of more than one member
-gb2 = re.compile("{<(!!|!.|[^!])*?>")  # garbage that are first in a group of one member
-gb3 = re.compile(",<(!!|!.|[^!])*?>")  # garbage that are not first in a group
+gb1 = re.compile("<(!.|[^!>])*>")
 
-str_cleaned1 = gb1.sub("{", input)
-
-str_cleaned2 = gb2.sub("{", str_cleaned1)
-
-str_cleaned3 = gb3.sub("", str_cleaned2)
+str_cleaned = gb1.sub("", input)
 
 
 def computeScore(str):
@@ -66,4 +60,4 @@ def computeScore(str):
     return score
 
 
-print(computeScore(str_cleaned3))
+print(computeScore(str_cleaned))
