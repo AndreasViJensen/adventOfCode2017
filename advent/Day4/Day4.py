@@ -30,26 +30,25 @@ def isAnagram(w1, w2):
     for c in w2:
         cnt2[c] += 1
 
-    print(cnt1)
-    print(cnt2)
-
-isAnagram("hej", "jeh")
-
-
+    if cnt1 == cnt2:
+        return True
+    return False
 
 
 def validPhrases2(phrases):
     valids = []
     for phrase in phrases:
-        for i in range(0,len(phrase)):
-            valid = True
-            for j in range(0,len(phrase)):
+        valid = True
+        for i in range(len(phrase)):
+            for j in range(len(phrase)):
                 if i != j:
-                    if isAnagram(phrase[i],phrase[j]):
+                    if isAnagram(phrase[i], phrase[j]):
                         valid = False
-            if valid:
-                valids.append(phrase)
-
+                        break
+            if not valid:
+                break
+        if valid:
+            valids.append(phrase)
     return len(valids)
 
 
