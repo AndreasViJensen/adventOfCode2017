@@ -13,6 +13,7 @@ def bitString(hexString):
         bs = bs + b
     return bs
 
+
 # counts free spaces in a 128*128 disk grid characterized by the key string inp
 def countFreeSpaces(inp):
     allFields = ""
@@ -46,6 +47,7 @@ def findAdjacents(r, c, black, rows):
                     black = b
 
     return (group, black)
+
 
 # This function computes the regions of adjacent used slots in a 128*128 memory grid
 # and returns them as a list of groups.
